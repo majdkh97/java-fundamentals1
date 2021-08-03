@@ -12,47 +12,94 @@ public class Library {
 
     public static void main(String[] args) {
 
-        Review review1 = new Review("i love banana" , "banana consumer", 4);
-        Review review2 = new Review("i love potato" , "potato consumer", 3);
-        Review review3 = new Review("i love tomato" , "tomato consumer", 2);
+//        Review review1 = new Review("i love banana" , "banana consumer", 4);
+//        Review review2 = new Review("i love potato" , "potato consumer", 3);
+//        Review review3 = new Review("i love tomato" , "tomato consumer", 2);
+//
+//        Review rev1 = new Review("i hate banana", "banana hater", 2);
+//        Review rev2 = new Review("i hate potato", "potato hater", 3);
+//        Review rev3 = new Review("i hate tomato", "tomato hater", 1);
+//
+//        List<Review> review = new ArrayList<>();
+//        review.add(review1);
+//        review.add(review2);
+//        review.add(review3);
+//
+//        List<Review> rev = new ArrayList<>();
+//        rev.add(rev1);
+//        rev.add(rev2);
+//        rev.add(rev3);
+//
+//        Restaurant restaurant1 = new Restaurant("shawarmaKing",5,420);
+//        Restaurant restaurant2 = new Restaurant("shawarmaUniverse", 4, 69);
+//
+//        System.out.println(restaurant1);
+//        System.out.println(restaurant2);
+//
+//        System.out.println("\n");
+//
+//        restaurant1.addReview(review);
+//        restaurant2.addReview(rev);
+//
+//        System.out.println("Restaurant name : "+restaurant1.getName());
+//        for(int i = 0 ; i<restaurant1.getReview().size() ; i++){
+//            System.out.println("Review "+(i+1)+" : "+restaurant1.getReview().get(i).getBody());
+//        }
+//        System.out.println(restaurant1);
+//        System.out.println("\n");
+//
+//        System.out.println("Restaurant name : "+restaurant2.getName());
+//        for(int i = 0 ; i<restaurant2.getReview().size() ; i++){
+//            System.out.println("Review "+(i+1)+" : "+restaurant2.getReview().get(i).getBody());
+//        }
+//        System.out.println(restaurant2);
+//
+//        System.out.println("\n");
+//        System.out.println("Lab07");
+//        System.out.println("\n");
+//
+//        Shop shop = new Shop("LazyNugget","Best chicken nuggets in town", 707);
+//        System.out.println(shop);
+//
+        Review shop = new Shop("LazyNugget","Best chicken nuggets in town", 707);
+        Review shopReview1 = new Review("kms" , "hehe", 3);
+        Review shopReview2 = new Review("kys" , "hoho", 4);
+        List<Review> shopReview = new ArrayList<>();
+        shopReview.add(shopReview1);
+        shopReview.add(shopReview2);
+        shop.setReview(shopReview);
 
-        Review rev1 = new Review("i hate banana", "banana hater", 2);
-        Review rev2 = new Review("i hate potato", "potato hater", 3);
-        Review rev3 = new Review("i hate tomato", "tomato hater", 1);
+        System.out.println(shop+"\n");
 
-        List<Review> review = new ArrayList<>();
-        review.add(review1);
-        review.add(review2);
-        review.add(review3);
 
-        List<Review> rev = new ArrayList<>();
-        rev.add(rev1);
-        rev.add(rev2);
-        rev.add(rev3);
+        Review restaurant = new Restaurant("FlafelKing",5,3);
+        Review restaurantRev1= new Review("i love it ","Monkey",4);
+        Review restaurantRev2= new Review("i like it ","Chimp",5);
+        List<Review> restaurantReview = new ArrayList<>();
+        restaurantReview.add(restaurantRev1);
+        restaurantReview.add(restaurantRev2);
+        restaurant.setReview(restaurantReview);
+        System.out.println(restaurant+"\n");
 
-        Restaurant restaurant1 = new Restaurant("shawarmaKing",5,420);
-        Restaurant restaurant2 = new Restaurant("shawarmaUniverse", 4, 69);
 
-        System.out.println(restaurant1);
-        System.out.println(restaurant2);
+        List<String> theaterMovies = new ArrayList<>();
+        theaterMovies.add("movie1");
+        theaterMovies.add("movie2");
+        Theater theater = new Theater("OOGABOOGA",theaterMovies);
+        Review theaterRev1 = new Review("i kinda like it ","monkeyKing",5,"movie1");
+        Review theaterRev2 = new Review("i sorta dislike it ","headlessRat",3,"movie2");
 
+        List<Review> theaterRev = new ArrayList<>();
+        theaterRev.add(theaterRev1);
+        theaterRev.add(theaterRev2);
+
+        theater.setReview(theaterRev);
+        System.out.println(theater);
         System.out.println("\n");
-
-        restaurant1.addReview(review);
-        restaurant2.addReview(rev);
-
-        System.out.println("Restaurant name : "+restaurant1.getName());
-        for(int i = 0 ; i<restaurant1.getReview().size() ; i++){
-            System.out.println("Review "+(i+1)+" : "+restaurant1.getReview().get(i).getBody());
-        }
-        System.out.println(restaurant1);
-        System.out.println("\n");
-
-        System.out.println("Restaurant name : "+restaurant2.getName());
-        for(int i = 0 ; i<restaurant2.getReview().size() ; i++){
-            System.out.println("Review "+(i+1)+" : "+restaurant2.getReview().get(i).getBody());
-        }
-        System.out.println(restaurant2);
+        theater.addMovie("kms");
+        System.out.println(theater+"\n");
+        theater.removeMovie("kms");
+        System.out.println(theater);
     }
 
 }
