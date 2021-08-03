@@ -11,37 +11,123 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    @Test void someLibraryMethodReturnsTrue() {
-        Library classUnderTest = new Library();
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+//    @Test
+//    void someLibraryMethodReturnsTrue() {
+//        Library classUnderTest = new Library();
+//        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+//    }
+
+//    @Test
+//    void restaurantTest() {
+//        Review review1 = new Review("i love banana", "banana consumer", 4);
+//        List<Review> review = new ArrayList<Review>();
+//        review.add(review1);
+//        Restaurant restoTest = new Restaurant("killmyself", 4, 69);
+//        restoTest.addReview(review);
+//        assertEquals("killmyself", restoTest.getName());
+//        assertEquals(4, restoTest.getStars());
+//        assertEquals(69, restoTest.getPrice());
+//        assertEquals("i love banana", restoTest.getReview().get(0).getBody());
+//    }
+
+//    @Test
+//    void reasonableString() {
+//        Restaurant test123 = new Restaurant("kikkei", 69, 69);
+//        assertEquals(test123.getName() + " " + test123.getStars() + " " + test123.getPrice(), test123.toString());
+//    }
+
+//    @Test
+//    void reviewTest() {
+//        Review revioTest = new Review("kms", "banana", 420);
+//        assertEquals("kms", revioTest.getBody());
+//        assertEquals("banana", revioTest.getAuthor());
+//        assertEquals(420, revioTest.getStarsNum());
+//    }
+
+//    @Test
+//    void reasonableString1() {
+//        Review test123 = new Review("kikkei", "banatato", 69);
+//        assertEquals(test123.getBody() + " " + test123.getAuthor() + " " + test123.getStarsNum(), test123.toString());
+//    }
+
+    @Test
+    void test1() {
+        Shop shop = new Shop("LazyNugget", "Best chicken nuggets in town", 707);
+        assertEquals("LazyNugget Best chicken nuggets in town 707", shop.getName() + " " + shop.getDescription() + " " + shop.getNum$());
     }
 
-    @Test void restaurantTest() {
-        Review review1 = new Review("i love banana" , "banana consumer", 4);
-        List<Review> review = new ArrayList<Review>();
-        review.add(review1);
-        Restaurant restoTest = new Restaurant("killmyself",4,69);
-        restoTest.addReview(review);
-        assertEquals("killmyself",restoTest.getName());
-        assertEquals(4,restoTest.getStars());
-        assertEquals(69,restoTest.getPrice());
-        assertEquals("i love banana",restoTest.getReview().get(0).getBody());
+    @Test
+    void test2() {
+        Review shop = new Shop("LazyNugget", "Best chicken nuggets in town", 707);
+        Review shopReview1 = new Review("kms", "hehe", 3);
+        Review shopReview2 = new Review("kys", "hoho", 4);
+        List<Review> shopReview = new ArrayList<>();
+        shopReview.add(shopReview1);
+        shopReview.add(shopReview2);
+        shop.setReview(shopReview);
+        assertEquals("[kms hehe 3 null, kys hoho 4 null]", shop.getReview().toString());
     }
 
-    @Test void reasonableString() {
-        Restaurant test123 = new Restaurant("kikkei",69,69);
-        assertEquals(test123.getName() + " " + test123.getStars() + " " + test123.getPrice(),test123.toString());
+    @Test
+    void test3(){
+        List<String> theaterMovies = new ArrayList<>();
+        theaterMovies.add("movie1");
+        theaterMovies.add("movie2");
+        Theater theater = new Theater("OOGABOOGA",theaterMovies);
+        Review theaterRev1 = new Review("i kinda like it ","monkeyKing",5,"movie1");
+        Review theaterRev2 = new Review("i sorta dislike it ","headlessRat",3,"movie2");
+        assertEquals("OOGABOOGA [movie1, movie2]",theater.getName() +" "+theater.getMovies().toString());
+        List<Review> theaterRev = new ArrayList<>();
+        theaterRev.add(theaterRev1);
+        theaterRev.add(theaterRev2);
+        theater.setReview(theaterRev);
+        assertEquals("[i kinda like it  monkeyKing 5 movie1, i sorta dislike it  headlessRat 3 movie2]",theater.getReview().toString());
+        theater.addMovie("kms");
+        assertEquals("[movie1, movie2, kms]",theater.getMovies().toString());
+        theater.removeMovie("kms");
+        assertEquals("[movie1, movie2]",theater.getMovies().toString());
+
     }
 
-    @Test void reviewTest() {
-        Review revioTest = new Review("kms","banana",420);
-        assertEquals("kms",revioTest.getBody());
-        assertEquals("banana",revioTest.getAuthor());
-        assertEquals(420,revioTest.getStarsNum());
+    @Test
+    void test4and5(){
+        List<String> theaterMovies = new ArrayList<>();
+        theaterMovies.add("movie1");
+        theaterMovies.add("movie2");
+        Theater theater = new Theater("OOGABOOGA",theaterMovies);
+        Review theaterRev1 = new Review("i kinda like it ","monkeyKing",5);
+        Review theaterRev2 = new Review("i sorta dislike it ","headlessRat",3);
+        List<Review> theaterRev = new ArrayList<>();
+        theaterRev.add(theaterRev1);
+        theaterRev.add(theaterRev2);
+        theater.setReview(theaterRev);
+        assertEquals("[i kinda like it  monkeyKing 5 null, i sorta dislike it  headlessRat 3 null]",theater.getReview().toString());
+
+        Review shop = new Shop("LazyNugget","Best chicken nuggets in town", 707);
+        Review shopReview1 = new Review("kms" , "hehe", 3);
+        Review shopReview2 = new Review("kys" , "hoho", 4);
+        List<Review> shopReview = new ArrayList<>();
+        shopReview.add(shopReview1);
+        shopReview.add(shopReview2);
+        shop.setReview(shopReview);
+        assertEquals("[kms hehe 3 null, kys hoho 4 null]",shop.getReview().toString());
+
+        Review restaurant = new Restaurant("FlafelKing",5,3);
+        Review restaurantRev1= new Review("i love it ","Monkey",4);
+        Review restaurantRev2= new Review("i like it ","Chimp",5);
+        List<Review> restaurantReview = new ArrayList<>();
+        restaurantReview.add(restaurantRev1);
+        restaurantReview.add(restaurantRev2);
+        restaurant.setReview(restaurantReview);
+        assertEquals("[i love it  Monkey 4 null, i like it  Chimp 5 null]",restaurant.getReview().toString());
+
+        Review theaterRev3 = new Review("test ","test",5,"test");
+        Review theaterRev4 = new Review("test ","test",3);
+        theaterRev.add(theaterRev3);
+        theaterRev.add(theaterRev4);
+        theater.setReview(theaterRev);
+        assertEquals("[i kinda like it  monkeyKing 5 null, i sorta dislike it  headlessRat 3 null, test  test 5 test, test  test 3 null]",theater.getReview().toString());
+        
     }
 
-    @Test void reasonableString1() {
-        Review test123 = new Review("kikkei","banatato",69);
-        assertEquals(test123.getBody() + " " + test123.getAuthor() + " " + test123.getStarsNum(),test123.toString());
-    }
 }
